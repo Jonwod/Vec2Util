@@ -25,11 +25,26 @@ namespace Vec2 {
     }
 
 
+
     template<template<class> class V, class S>
     S dotProduct(const V<S> & a, const V<S> & b) {
         return a.x * b.x + a.y * b.y;
     }
 
+
+    // Returns the angle, in radians, of the specified vector,
+    // where (1, 0) is 0, (0, 1) is pi/2 e.t.c.
+    template<template<class> class V, class S>
+    inline float angleRadians(const V<S>& vec){
+        return atan2(vec.y, vec.x);
+    }
+
+
+    // Returns a unit vector at the specified angle (in radians).
+    template<typename T>
+    T vectorFromAngle(float angleRadians) {
+        return T(cosf(angleRadians), sinf(angleRadians));
+    }
 }
 
 
