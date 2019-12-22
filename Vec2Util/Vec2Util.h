@@ -41,9 +41,18 @@ namespace Vec2 {
 
 
     // Returns a unit vector at the specified angle (in radians).
-    template<typename T>
-    T vectorFromAngle(float angleRadians) {
-        return T(cosf(angleRadians), sinf(angleRadians));
+    template<typename V>
+    V vectorFromAngle(float angleRadians) {
+        return V(cosf(angleRadians), sinf(angleRadians));
+    }
+
+
+    // Rotates the specified vector about the origin by the specified angle in radians
+    template<typename V>
+    V rotateVector(const V& vector, float angleRadians) {
+        const float s = sinf(angleRadians);
+        const float c = cosf(angleRadians);
+        return V(vector.x * c - vector.y * s, vector.x * s + vector.y * c);
     }
 }
 

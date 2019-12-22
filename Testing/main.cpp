@@ -17,6 +17,8 @@ bool nearlyEqual(sf::Vector2f v1, sf::Vector2f v2, float delta = 0.001f) {
 
 using namespace Vec2;
 
+constexpr float pi = 3.1415926535897932384626433832f;
+
 
 int main() {
     sf::Vector2f vec_f1{100.f, -100.f};
@@ -32,6 +34,11 @@ int main() {
     assert(nearlyEqual(angleRadians(sf::Vector2f(0, 1)), 1.5708));
 
     assert(nearlyEqual(vectorFromAngle<sf::Vector2f>(1.5708), sf::Vector2f(0, 1)));
+
+    sf::Vector2f vec_f3{1.f, 0.f};
+    assert(nearlyEqual(rotateVector(vec_f3, pi/2.f), sf::Vector2f(0.f, 1.f)));
+    assert(nearlyEqual(rotateVector(vec_f3, -pi/2.f), sf::Vector2f(0.f, -1.f)));
+    assert(nearlyEqual(rotateVector(vec_f3, 2 * pi), vec_f3));
 
     std::cout<<"All tests passed!"<<std::endl;
     return 0;
