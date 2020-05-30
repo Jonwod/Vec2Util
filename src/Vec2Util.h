@@ -32,6 +32,15 @@ namespace Vec2 {
     }
 
 
+    // Returns a unit vector in the same direction as input vector.
+    // If input vector has length 0, will perform division by 0 internally.
+    template<template<class> class V, class S>
+    V<S> unsafeNormal(const V<S>& v) {
+        const S len = length(v);
+        return V<S>( v.x / len, v.y / len);
+    }
+
+
     // Returns the angle, in radians, of the specified vector,
     // where (1, 0) is 0, (0, 1) is pi/2 e.t.c.
     template<template<class> class V, class S>
