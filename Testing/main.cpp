@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "../Vec2Util/Vec2Util.h"
+#include "../src/Vec2Util.h"
 #include "SFML/System/Vector2.hpp"
 
 
