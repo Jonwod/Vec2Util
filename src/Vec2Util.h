@@ -41,6 +41,15 @@ namespace Vec2 {
     }
 
 
+    // Returns a unit vector in the same direction as input vector.
+    // If input vector has length 0, will return the zero vector
+    template<template<class> class V, class S>
+    V<S> normal(const V<S>& v) {
+        const S len = length(v);
+        return len == 0 ? V<S>(0, 0) : V<S>( v.x / len, v.y / len);
+    }
+
+
     // Returns the angle, in radians, of the specified vector,
     // where (1, 0) is 0, (0, 1) is pi/2 e.t.c.
     template<template<class> class V, class S>
