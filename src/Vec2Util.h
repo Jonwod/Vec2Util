@@ -7,6 +7,8 @@
 #include <string>
 #include <cmath>
 
+// Comment added to test git submodules.
+
 
 /* A set of functions for use on any 2d vector class with a public x and y variables,
  * that support the basic mathematical operations. */
